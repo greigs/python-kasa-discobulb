@@ -18,7 +18,7 @@ async def initBulb(ip):
     return bulb
 
 async def main():
-    print('disco time. Searching for Kasa RGB bulbs...')
+    print('Disco time. Searching for Kasa RGB bulbs...')
     
     found_devices = await kasa.Discover.discover(timeout=searchTimeout)
     bulb_devices = []
@@ -34,6 +34,10 @@ async def main():
         for x in range(1, runtimeSeconds):
             await randomset(bulb_devices, 1_000)
             await asyncio.sleep(1)
-        print('done')
+        print('Done')
 
-asyncio.run(main())
+loop = asyncio.get_event_loop()
+try:
+    loop.run_until_complete(main())
+except KeyboardInterrupt:
+    print("Received exit command, exiting")
