@@ -1,7 +1,9 @@
 # python-kasa-discobulb
 Disco Mode for your Kasa RGB Bulbs
 
-Should auto-find your bulbs and start a disco light mode on all of them that lasts for 1 minute (change runtimeSeconds for your preference)
+Should auto-find your bulbs and start a disco light mode on all of them 
+
+Ctrl + C to exit
 
 # Prerequisites
 Install python from https://www.python.org/downloads/ if you haven't already
