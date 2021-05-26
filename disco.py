@@ -27,10 +27,12 @@ async def main():
             bulb_devices.append(await initBulb(devStr))
             print(devStr)
     
-    for x in range(1, runtimeSeconds):
-        await randomset(bulb_devices, 1_000)
-        await asyncio.sleep(1)
-
-    print('done')
+    if not bulb_devices:
+        print('No Kasa RGB bulb devices found')
+    else:
+        for x in range(1, runtimeSeconds):
+            await randomset(bulb_devices, 1_000)
+            await asyncio.sleep(1)
+        print('done')
 
 asyncio.run(main())
