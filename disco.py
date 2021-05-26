@@ -2,7 +2,6 @@ import asyncio
 import kasa
 import random
 
-runtimeSeconds = 60 # how long should the disco last? (hint: forever is best)
 searchTimeout = 10 # default is 5, but this seems more reliable
 
 async def randomset(bulbs, t):
@@ -21,6 +20,7 @@ async def initBulb(ip):
 
 async def main():
     print('Disco time. Searching for Kasa RGB bulbs...')
+    print('Ctrl + C to exit at any time')
     
     found_devices = await kasa.Discover.discover(timeout=searchTimeout)
     bulb_devices = []
@@ -32,10 +32,9 @@ async def main():
     if not bulb_devices:
         print('No Kasa RGB bulb devices found')
     else:
-        for x in range(1, runtimeSeconds):
+        while True:
             await randomset(bulb_devices, 1_000)
             await asyncio.sleep(1)
-        print('Done')
 
 loop = asyncio.get_event_loop()
 try:
