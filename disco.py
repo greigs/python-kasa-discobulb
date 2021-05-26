@@ -2,6 +2,8 @@ import asyncio
 import kasa
 import random
 
+runtimeSeconds = 60
+
 async def randomset(bulbs, t):
     for b in bulbs:
         await b.set_hsv(random.randint(10, 360), 100, 100, transition=t)
@@ -25,7 +27,7 @@ async def main():
             bulb_devices.append(await initBulb(devStr))
             print(devStr)
     
-    for x in range(1, 60):
+    for x in range(1, runtimeSeconds):
         await randomset(bulb_devices, 1_000)
         await asyncio.sleep(1)
 
