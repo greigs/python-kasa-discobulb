@@ -6,7 +6,7 @@ Should auto-find your bulbs and start a disco light mode on all of them that las
 # Prerequisites
 Install python from https://www.python.org/downloads/ if you haven't already
 
-You will need git to clone the repository (or use the download button)
+You will need git to clone the repository (or use the download ZIP button)
 
 
 # Instructions
